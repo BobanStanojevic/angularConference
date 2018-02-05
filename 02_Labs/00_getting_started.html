@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+        <style>
+/*--------------------------------------------------------------------------------------------- * Copyright (c) Microsoft Corporation. All rights reserved. * Licensed under the MIT License. See License.txt in the project root for license information. *--------------------------------------------------------------------------------------------*/ body { font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback"; font-size: 14px; padding: 0 12px; line-height: 22px; word-wrap: break-word; } body.scrollBeyondLastLine { margin-bottom: calc(100vh - 22px); } body.showEditorSelection .code-line { position: relative; } body.showEditorSelection .code-active-line:before, body.showEditorSelection .code-line:hover:before { content: ""; display: block; position: absolute; top: 0; left: -12px; height: 100%; } body.showEditorSelection li.code-active-line:before, body.showEditorSelection li.code-line:hover:before { left: -30px; } .vscode-light.showEditorSelection .code-active-line:before { border-left: 3px solid rgba(0, 0, 0, 0.15); } .vscode-light.showEditorSelection .code-line:hover:before { border-left: 3px solid rgba(0, 0, 0, 0.40); } .vscode-dark.showEditorSelection .code-active-line:before { border-left: 3px solid rgba(255, 255, 255, 0.4); } .vscode-dark.showEditorSelection .code-line:hover:before { border-left: 3px solid rgba(255, 255, 255, 0.60); } .vscode-high-contrast.showEditorSelection .code-active-line:before { border-left: 3px solid rgba(255, 160, 0, 0.7); } .vscode-high-contrast.showEditorSelection .code-line:hover:before { border-left: 3px solid rgba(255, 160, 0, 1); } img { max-width: 100%; max-height: 100%; } a { color: #4080D0; text-decoration: none; } a:focus, input:focus, select:focus, textarea:focus { outline: 1px solid -webkit-focus-ring-color; outline-offset: -1px; } hr { border: 0; height: 2px; border-bottom: 2px solid; } h1 { padding-bottom: 0.3em; line-height: 1.2; border-bottom-width: 1px; border-bottom-style: solid; } h1, h2, h3 { font-weight: normal; } h1 code, h2 code, h3 code, h4 code, h5 code, h6 code { font-size: inherit; line-height: auto; } a:hover { color: #4080D0; text-decoration: underline; } table { border-collapse: collapse; } table > thead > tr > th { text-align: left; border-bottom: 1px solid; } table > thead > tr > th, table > thead > tr > td, table > tbody > tr > th, table > tbody > tr > td { padding: 5px 10px; } table > tbody > tr + tr > td { border-top: 1px solid; } blockquote { margin: 0 7px 0 5px; padding: 0 16px 0 10px; border-left: 5px solid; } code { font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback"; font-size: 14px; line-height: 19px; } body.wordWrap pre { white-space: pre-wrap; } .mac code { font-size: 12px; line-height: 18px; } code > div { padding: 16px; border-radius: 3px; overflow: auto; } /** Theming */ .vscode-light { color: rgb(30, 30, 30); } .vscode-dark { color: #DDD; } .vscode-high-contrast { color: white; } .vscode-light code { color: #A31515; } .vscode-dark code { color: #D7BA7D; } .vscode-light code > div { background-color: rgba(220, 220, 220, 0.4); } .vscode-dark code > div { background-color: rgba(10, 10, 10, 0.4); } .vscode-high-contrast code > div { background-color: rgb(0, 0, 0); } .vscode-high-contrast h1 { border-color: rgb(0, 0, 0); } .vscode-light table > thead > tr > th { border-color: rgba(0, 0, 0, 0.69); } .vscode-dark table > thead > tr > th { border-color: rgba(255, 255, 255, 0.69); } .vscode-light h1, .vscode-light hr, .vscode-light table > tbody > tr + tr > td { border-color: rgba(0, 0, 0, 0.18); } .vscode-dark h1, .vscode-dark hr, .vscode-dark table > tbody > tr + tr > td { border-color: rgba(255, 255, 255, 0.18); } .vscode-light blockquote, .vscode-dark blockquote { background: rgba(127, 127, 127, 0.1); border-color: rgba(0, 122, 204, 0.5); } .vscode-high-contrast blockquote { background: transparent; border-color: #fff; }
+</style>
+<style>
+/* Tomorrow Theme */ /* http://jmblog.github.com/color-themes-for-google-code-highlightjs */ /* Original theme - https://github.com/chriskempson/tomorrow-theme */ /* Tomorrow Comment */ .hljs-comment, .hljs-quote { color: #8e908c; } /* Tomorrow Red */ .hljs-variable, .hljs-template-variable, .hljs-tag, .hljs-name, .hljs-selector-id, .hljs-selector-class, .hljs-regexp, .hljs-deletion { color: #c82829; } /* Tomorrow Orange */ .hljs-number, .hljs-built_in, .hljs-builtin-name, .hljs-literal, .hljs-type, .hljs-params, .hljs-meta, .hljs-link { color: #f5871f; } /* Tomorrow Yellow */ .hljs-attribute { color: #eab700; } /* Tomorrow Green */ .hljs-string, .hljs-symbol, .hljs-bullet, .hljs-addition { color: #718c00; } /* Tomorrow Blue */ .hljs-title, .hljs-section { color: #4271ae; } /* Tomorrow Purple */ .hljs-keyword, .hljs-selector-tag { color: #8959a8; } .hljs { display: block; overflow-x: auto; color: #4d4d4c; padding: 0.5em; } .hljs-emphasis { font-style: italic; } .hljs-strong { font-weight: bold; }
+</style>
+<style>
+ul.contains-task-list { padding-left: 0; } ul ul.contains-task-list { padding-left: 40px; } .task-list-item { list-style-type: none; } .task-list-item-checkbox { vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'HelveticaNeue-Light', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 id="getting-started">Getting Started</h1>
+<ul>
+<li><a href="#getting-started">Getting Started</a>
+<ul>
+<li><a href="#before-you-start">Before you start</a>
+<ul>
+<li><a href="#required-software">Required Software</a></li>
+<li><a href="#prevent-caching">Prevent caching</a></li>
+<li><a href="#bonus-tasks">Bonus Tasks</a></li>
+</ul>
+</li>
+<li><a href="#getting-started-with-intellij-webstorm">Getting started with IntelliJ / WebStorm</a></li>
+<li><a href="#getting-started-with-visual-studio-code">Getting Started with Visual Studio Code</a></li>
+<li><a href="#take-a-closer-look-at-the-starter-kit">Take a closer look at the starter kit</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="before-you-start">Before you start</h2>
+<h3 id="required-software">Required Software</h3>
+<ul>
+<li>NodeJS in a current version (we test with the current LTS version)</li>
+<li>Angular CLI (<code>npm i -g @angular/cli</code>)</li>
+<li>IDE / Editor
+    - Visual Studio Code (free) <em>or</em>
+    - IntelliJ / WebStorm (commercial)</li>
+</ul>
+<h3 id="prevent-caching">Prevent caching</h3>
+<p>Caching issues are an annoying source of error when working with single page applications. To have a comfortable way to clear the cache and refresh the page, please install the plugin <a href="https://chrome.google.com/webstore/detail/clear-cache/cppjkneekbjaeellbfkmgnhonkkjfpdn">Clear Cache</a>. You can find it <a href="https://chrome.google.com/webstore/detail/clear-cache/cppjkneekbjaeellbfkmgnhonkkjfpdn">here</a>.</p>
+<p>If you are having trouble installing this plugin, make sure that the following option is enabled in the Developer Console (F12) and keep this console open during development:</p>
+<p><img src="https://i.imgur.com/i1wSPIw.png" alt="Disable Cache"></p>
+<h3 id="bonus-tasks">Bonus Tasks</h3>
+<p>The exercises include not only the classic tasks but also bonus tasks. The number of stars next to the headlines indicates their level of difficulty (the more stars the harder). While the classic tasks should be solved by all participants, the bonus tasks serve as a challenge as well as to deepen the knowledge for those who are a little faster.</p>
+<h2 id="getting-started-with-intellij-webstorm">Getting started with IntelliJ / WebStorm</h2>
+<blockquote>
+<p>If you use Visual Studio code, you can skip this section.</p>
+</blockquote>
+<p>In this part of the tutorial, you will download and run the starter kit for your own project.</p>
+<ol>
+<li>
+<p>Download the starter kit. You can find it in the folder <code>labs</code> (<code>starter.zip</code>).</p>
+<p>If you are using Linux or OS X, you should add the execution flag (x) to all files in the folder <code>node_modules\.bin</code> with <code>chmod</code>.</p>
+</li>
+<li>
+<p>Open the starter kit in WebStorm/IntelliJ.</p>
+</li>
+<li>
+<p>Under <code>File|Settings</code> make sure that <code>Use TypeScript Service</code> as well as the option <code>Use tsconfig.json</code> is active. Depending on the version used, the appearance of this dialog may differ:</p>
+<p><img src="Https://i.imgur.com/SnFLBMn.png" alt=""></p>
+<p>If you can not enable the TypeScript service, you can alternatively enable the TypeScript compiler and the  <code>Use tsconfig.json</code> option.</p>
+</li>
+<li>
+<p>Under <code>File | Settings</code> deactivate the tool <code>tslint</code> (if it is activated).</p>
+<p><img src="Https://i.imgur.com/wuK6SQn.png" alt=""></p>
+<p>This tool checks whether your TypeScript and Angular code aligns with typical conventions. While useful in a real-world project and ensuring consistency between individual team members, it is too restrictive for learning Angular or TypeScript and thus a impediment.</p>
+</li>
+<li>
+<p><strong>Open any TypeScript file</strong> in your project (for example, <code>src/main.ts</code>).</p>
+<p>After code changes in the window below, you can compile all the TypeScript code to get feedback directly from the IDE. Getting feedback this way is a bit easier than reading error messages from the web server console that will be started in the next step.</p>
+<p><img src="Https://i.imgur.com/8Obf8S8.png" alt=""></p>
+<p><img src="Https://i.imgur.com/ZFOkO1R.png" alt=""></p>
+</li>
+<li>
+<p>Switch to the terminal and start the starter kit with <code>npm start</code>.</p>
+<p><img src="Https://i.imgur.com/7YG65wz.png" alt=""></p>
+<p>If you do not want to run the project in the IDE, you can also use <code>cmd</code> (under Windows) or <code>bash</code> (under Linux and OS X) to open a shell in the root of the project and use <code>npm start</code>.</p>
+</li>
+<li>
+<p>Open it in the browser (<code>http://localhost:4200</code>). You should now see the demo application.</p>
+<p>The port used may differ. You can see it from the console output at startup. If you would like to change the port of a project, you can adjust this in the <code>package.json</code> file. To do this, add the <code>--port</code> option to the node scripts / start:</p>
+<pre><code>"scripts": {
+	"start": "ng serve --port 4242", [...]
+}
+</code></pre>
+</li>
+</ol>
+<h2 id="getting-started-with-visual-studio-code">Getting Started with Visual Studio Code</h2>
+<blockquote>
+<p>If you are using IntelliJ/WebStorm, you can skip this section.</p>
+</blockquote>
+<p>In this part of the exercise, you will download and run the starter kit as the starting point for your own project.</p>
+<p>Tip: Install the following useful plugins for developing with Angular:</p>
+<ul>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=alexiv.vscode-angular2-files">Angular Files</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=pmneo.tsimporter">TsImporter</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=johnpapa.Angular2">Angular Snippets</a></li>
+</ul>
+<p>Use the following steps to get started with the starter kit:</p>
+<ol>
+<li>
+<p>Download the starter kit. It is located in the folder <code>labs</code> (<code>starter.zip</code>).</p>
+<p>If you are using Linux or OS X, you should use <code>chmod</code> to add the execution flag (x) to all files in the <code>node_modules/.bin</code> folder.</p>
+</li>
+<li>
+<p>Open the starter kit in Visual Studio Code.</p>
+</li>
+<li>
+<p>Compile your solution (<code>CTRL+SHIFT+B</code>).</p>
+</li>
+<li>
+<p>If, and only if Visual Studio code indicates at initial compile that there is not yet a task configuration, specify to create one and then select npm from the templates. Then overwrite the generated <code>tasks.json</code> file with the following content:</p>
+<pre><code>{
+	"version": "0.1.0",
+	"command": "npm",
+	"isShellCommand": true,
+	"args": ["run", "tsc"],
+	"showOutput": "silent",
+	"problemMatcher": "$tsc"
+}
+</code></pre>
+<p>This task triggers the npm script <code>tsc</code>,which in turn starts the TypeScript compiler.</p>
+<p>Make sure that your <code>package.json</code> contains a script <code>tsc</code> that starts the TypeScript compiler:</p>
+<pre><code>"scripts": {
+	[...]
+	"tsc": "tsc"
+}
+</code></pre>
+</li>
+<li>
+<p>Change to the command line (<code>CTRL+SHIFT+C</code>)</p>
+</li>
+<li>
+<p>Start the development server: <code>npm start</code></p>
+<p>Note: The development server does not put the required bundles on the disk but only keeps them in the main memory. When you change the source files, it recreates the bundles and then notifies the browser.</p>
+</li>
+<li>
+<p>Open the demo in Chrome (http://localhost:4200)</p>
+<p>The port used may differ. You can see it from the console output at startup. If you want to change the port of a project, you can adjust this in the <code>package.json</code> file. To do this, add the <code>--port</code> option to the node <code>scripts/start</code>:</p>
+<pre><code>"scripts": {
+	"start": "ng serve --port 4242", [...]
+}
+</code></pre>
+</li>
+</ol>
+<h2 id="take-a-closer-look-at-the-starter-kit">Take a closer look at the starter kit</h2>
+<p>In this part, you will take a closer look at the starter kit to familiarize yourself with it.</p>
+<ol>
+<li>
+<p>Look at the component in the <code>app.component.ts</code> and <code>app.component.html</code> and find out what they do.</p>
+</li>
+<li>
+<p>Note that the <code>app.component.html</code> has an element <code>&lt;router-outlet&gt;&lt;/ router-outlet&gt;</code>. This is the placeholder for the router.</p>
+</li>
+<li>
+<p>Have a look at the routing configuration in <code>app.routes.ts</code>.</p>
+</li>
+<li>
+<p>Look at the module in the <code>app.module.ts</code> file.</p>
+</li>
+<li>
+<p>In the <code>flight-booking</code> folder, look at the module in the file <code>flight-booking.module.ts</code> and the corresponding route configuration in the file <code>flight-booking.routes.ts</code>.</p>
+</li>
+<li>
+<p>Look at the component in the files <code>flight-search.component.ts</code> and <code>flight-search.component.html</code> and find out what they do.</p>
+</li>
+<li>
+<p>Notice how the <code>flight-search.component.ts</code> imports the <code>FlightService</code> as well as the <code>Flight</code> class. Notice that it comes from a library of the Monorepo project.</p>
+</li>
+<li>
+<p>Go to the library and look at the file <code>flight.service.ts</code> and the file <code>flight.ts</code>.</p>
+</li>
+<li>
+<p>Switch back to the application and look at the application bootstrap logic in the <code>main.ts</code> file and follow its operation.</p>
+</li>
+<li>
+<p>Look at the <code>index.html</code> file.</p>
+</li>
+<li>
+<p>If you have not already done so, start the development web server:</p>
+<pre><code>npm start
+</code></pre>
+</li>
+<li>
+<p>Open the project in the browser.</p>
+</li>
+</ol>
+
+    </body>
+    </html>
